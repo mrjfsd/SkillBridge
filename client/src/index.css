@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+@import "tailwindcss";
+
+:root {
+  --github-bg: #0d1117;
+  --github-text: #c9d1d9;
+  --github-secondary: #21262d;
+  --github-accent: #238636;
+  --github-accent-hover: #2ea043;
+  --github-border: #30363d;
+}
+
+* {
+  font-family: "Outfit", sans-serif;
+}
+
+body {
+  @apply bg-[#0d1117] text-[#c9d1d9];
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+  input:not([type="checkbox"]) {
+    @apply outline-none focus:ring border bg-[#21262d] border-[#30363d] focus:ring-[#238636] focus:border-[#238636] rounded-lg text-[#c9d1d9];
+  }
+  textarea {
+    @apply outline-none focus:ring border bg-[#21262d] border-[#30363d] focus:ring-[#238636] focus:border-[#238636] rounded-lg text-[#c9d1d9] resize-none;
+  }
+}
+
+/* Floating Bubble Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(25vh) translateX(30px) scale(1) rotate(90deg);
+  }
+  50% {
+    transform: translateY(50vh) translateX(-20px) scale(1.2) rotate(180deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(75vh) translateX(40px) scale(0.9) rotate(270deg);
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(120vh) translateX(-30px) scale(0.6) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
